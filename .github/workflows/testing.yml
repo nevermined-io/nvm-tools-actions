@@ -1,0 +1,23 @@
+name: Testing
+
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: nevermined-io/nvm-tools-action@v0.1.0
+        with:
+          token: ${{ secrets.API_TOKEN_GITHUB }}
+
+      - name: Test action
+        run: |
+          nvm-tools copy-artifacts ./artifacts
+          ls -l ./artifacts
