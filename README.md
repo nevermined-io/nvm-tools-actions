@@ -35,7 +35,7 @@ When using this action the `nvm-tools` command will also be available to all ste
 ## Scenarios
 
 - [Use latest version of all nevermined components](#Use-latest-version-of-all-nevermined-components)
-- [Use development version of some nevermined contracts](#Use-development-version-of-some-nevermined-contracts)
+- [Use development version of nevermined contracts](#Use-development-version-of-nevermined-contracts)
 
 ### Use latest version of all nevermined components
 
@@ -48,7 +48,7 @@ When using this action the `nvm-tools` command will also be available to all ste
   run: nvm-tools copy-artifacts ./artifacts
 ```
 
-### Use development version of some nevermined contracts
+### Use development version of nevermined contracts
 
 ```yaml
 - uses: nevermined-io/nvm-tools-actions@v0.1.0
