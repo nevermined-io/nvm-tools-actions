@@ -20,4 +20,4 @@ jobs:
       - name: Test action
         run: |
           nvm-tools copy-artifacts ./artifacts
-          ls -l ./artifacts
+          ls -l ./artifacts/ready
