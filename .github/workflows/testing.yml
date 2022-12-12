@@ -13,11 +13,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: nevermined-io/nvm-tools-action@v0.1.0
+      - uses: nevermined-io/nvm-tools-actions@v0.1.0
         with:
           token: ${{ secrets.API_TOKEN_GITHUB }}
 
       - name: Test action
         run: |
           nvm-tools copy-artifacts ./artifacts
-          ls -l ./artifacts
+          ls -l ./artifacts/ready
