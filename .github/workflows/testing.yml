@@ -17,7 +17,14 @@ jobs:
         with:
           token: ${{ secrets.API_TOKEN_GITHUB }}
 
-      - name: Test action
+      - name: Test action artifacts
         run: |
           nvm-tools copy-artifacts ./artifacts
           ls -l ./artifacts/ready
+
+      - name: Test action services
+        run: |
+          curl argocd.nevermined.localnet
+          curl contracts.nevermined.localnet
+          curl node.nevermined.localnet
+          curl marketplace.nevermined.localnet
