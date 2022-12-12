@@ -43,6 +43,9 @@ When using this action the `nvm-tools` command will also be available to all ste
 - uses: nevermined-io/nvm-tools-actions@v0.1.0
   with:
     token: ${{ secrets.API_TOKEN_GITHUB }}
+
+- name: Copy artifacts
+  run: nvm-tools copy-artifacts ./artifacts
 ```
 
 ### Use development version of some nevermined contracts
