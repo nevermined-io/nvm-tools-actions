@@ -13,9 +13,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: nevermined-io/nvm-tools-actions@v0.1.0
+      - uses: actions/checkout@v3
+      - uses: ./
         with:
           token: ${{ secrets.API_TOKEN_GITHUB }}
+          opengsn: "true"
+          estuary: "true"
 
       - name: Test action artifacts
         run: |
@@ -28,3 +31,5 @@ jobs:
           curl contracts.nevermined.localnet
           curl node.nevermined.localnet
           curl marketplace.nevermined.localnet
+          curl opengsn.nevermined.localnet/getaddr
+          curl estuary.nevermined.localnet/health

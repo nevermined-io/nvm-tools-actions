@@ -16,6 +16,22 @@ inputs:
     description: 'The marketplace api version'
     required: false
     default: 'latest'
+  node:
+    description: 'Start with node'
+    required: false
+    default: 'true'
+  marketplace:
+    description: 'Start with marketplace'
+    required: false
+    default: 'true'
+  opengsn:
+    description: 'Start with opengsn'
+    required: false
+    default: 'false'
+  estuary:
+    description: 'Start with estuary'
+    required: false
+    default: 'false'
 runs:
   using: 'composite'
   steps:
@@ -45,7 +61,11 @@ runs:
         MARKETPLACE_VERSION: ${{ inputs.marketplace-version }}
       working-directory: ./nvm-tools
       run: |
-        ./nvm-tools start
+        ./nvm-tools start \
+          $( [[ ${{ inputs.node }} == "false" ]] && printf %s '--no-node' ) \
+          $( [[ ${{ inputs.marketplace }} == "false" ]] && printf %s '--no-marketplace' ) \
+          $( [[ ${{ inputs.opengsn }} == "true" ]] && printf %s '--opengsn' ) \
+          $( [[ ${{ inputs.estuary }} == "true" ]] && printf %s '--estuary' )
         sudo ln -s $PWD/nvm-tools /usr/local/bin
       shell: bash
 
