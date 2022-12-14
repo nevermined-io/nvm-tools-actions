@@ -30,6 +30,26 @@ When using this action the `nvm-tools` command will also be available to all ste
     # Default: 'latest'
     # Required: false
     marketplace-version: ""
+
+    # Start with node.
+    # Default: 'true'
+    # Required: false
+    node: ""
+
+    # Start with marketplace.
+    # Default: 'true'
+    # Required: false
+    marketplace: ""
+
+    # Start with opengsn.
+    # Default: 'false'
+    # Required: false
+    opengsn: ""
+
+    # Start with estuary.
+    # Default: 'false'
+    # Required: false
+    estuary: ""
 ```
 
 ## Scenarios
