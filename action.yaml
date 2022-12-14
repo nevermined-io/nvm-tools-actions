@@ -61,6 +61,8 @@ runs:
         MARKETPLACE_VERSION: ${{ inputs.marketplace-version }}
       working-directory: ./nvm-tools
       run: |
+        echo ${{ inputs.node }}
+        echo "${{ inputs.node }}"
         ./nvm-tools start \
           $( [[ ${{ inputs.node }} == "false" ]] && printf %s '--no-node' ) \
           $( [[ ${{ inputs.marketplace }} == "false" ]] && printf %s '--no-marketplace' ) \
