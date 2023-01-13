@@ -53,7 +53,7 @@ runs:
 
     - name: Install helm
       run: |
-        curl -fsSL -o https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+        curl -sSL -O https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
         sudo chmod 755 get_helm.sh       
         ./get_helm.sh -v v3.6.0
       shell: bash
