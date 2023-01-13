@@ -32,6 +32,10 @@ inputs:
     description: 'Start with estuary'
     required: false
     default: 'false'
+  compute:
+    description: 'Start compute stack'
+    required: false
+    default: 'false'
 runs:
   using: 'composite'
   steps:
@@ -45,6 +49,11 @@ runs:
       run: |
         curl -sSL -o argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/download/v2.5.3/argocd-linux-amd64
         sudo install -m 555 argocd-linux-amd64 /usr/local/bin/argocd
+      shell: bash
+
+    - name: Install helm
+      run: |
+        curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
       shell: bash
 
     - uses: actions/checkout@v3
@@ -65,7 +74,8 @@ runs:
           $( [[ ${{ inputs.node }} == "false" ]] && printf %s '--no-node' ) \
           $( [[ ${{ inputs.marketplace }} == "false" ]] && printf %s '--no-marketplace' ) \
           $( [[ ${{ inputs.opengsn }} == "true" ]] && printf %s '--opengsn' ) \
-          $( [[ ${{ inputs.estuary }} == "true" ]] && printf %s '--estuary' )
+          $( [[ ${{ inputs.estuary }} == "true" ]] && printf %s '--estuary' ) \
+          $( [[ ${{ inputs.compute }} == "true" ]] && printf %s '--compute' ) 
         sudo ln -s $PWD/nvm-tools /usr/local/bin
       shell: bash
 
