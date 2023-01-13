@@ -50,6 +50,11 @@ When using this action the `nvm-tools` command will also be available to all ste
     # Default: 'false'
     # Required: false
     estuary: ""
+
+    # Start with compute stack.
+    # Default: 'false'
+    # Required: false
+    compute: ""
 ```
 
 ## Scenarios
