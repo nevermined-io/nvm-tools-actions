@@ -53,7 +53,7 @@ runs:
 
     - name: Install helm
       run: |
-        curl -sSL -o https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+        curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
       shell: bash
 
     - uses: actions/checkout@v3
