@@ -54,7 +54,6 @@ runs:
     - name: Install helm
       run: |
         curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
-        helm repo list
         helm repo add stable https://charts.helm.sh/stable
       shell: bash
 
