@@ -59,8 +59,10 @@ runs:
     - uses: actions/checkout@v3
       with:
         repository: nevermined-io/nvm-tools
+        ref: 7b439442f87ce77e8cefb1fd486d1117f8b1a30f
         path: nvm-tools
         token: ${{ inputs.token }}
+        fetch-depth: 0
 
     - name: 'Start nvm-tools'
       env:
