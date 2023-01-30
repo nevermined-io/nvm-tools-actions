@@ -28,7 +28,7 @@ jobs:
 
       - name: Test action cirtuits
         run: |
-          nvm-tools copy-cirtuits ./cirtuits
+          nvm-tools copy-circuits ./circuits
           ls -l circuits/keytransfer.wasm
 
       - name: Test action services
