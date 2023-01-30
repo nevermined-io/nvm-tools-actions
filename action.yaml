@@ -59,14 +59,14 @@ runs:
     - uses: actions/checkout@v3
       with:
         repository: nevermined-io/nvm-tools
-        ref: v0.0.3
+        ref: v0.0.5
         path: nvm-tools
         token: ${{ inputs.token }}
         fetch-depth: 0
 
     - name: 'Start nvm-tools'
       env:
-        OVERRIDE_TARGET_REVISION: v0.0.3
+        OVERRIDE_TARGET_REVISION: v0.0.5
         GITHUB_TOKEN: ${{ inputs.token }}
         CONTRACTS_VERSION: ${{ inputs.contracts-version }}
         NODE_VERSION: ${{ inputs.node-version }}
