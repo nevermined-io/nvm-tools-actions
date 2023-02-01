@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "auto-changelog": "^2.4.0"
+  }
+}
