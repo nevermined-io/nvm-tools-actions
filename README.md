@@ -55,12 +55,19 @@ When using this action the `nvm-tools` command will also be available to all ste
     # Default: 'false'
     # Required: false
     compute: ""
+
+    # Elastic version.
+    # Required: false
+    elastic-version: ""
 ```
 
 ## Scenarios
 
-- [Use latest version of all nevermined components](#Use-latest-version-of-all-nevermined-components)
-- [Use development version of nevermined contracts](#Use-development-version-of-nevermined-contracts)
+- [nvm-tools-actions](#nvm-tools-actions)
+  - [Usage](#usage)
+  - [Scenarios](#scenarios)
+    - [Use latest version of all nevermined components](#use-latest-version-of-all-nevermined-components)
+    - [Use development version of nevermined contracts](#use-development-version-of-nevermined-contracts)
 
 ### Use latest version of all nevermined components
 

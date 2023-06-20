@@ -35,7 +35,10 @@ inputs:
   compute:
     description: 'Start compute stack'
     required: false
-    default: 'false'
+    default: 'false'  
+  elastic-version:
+    description: 'The version of the elastic'
+    required: false
 runs:
   using: 'composite'
   steps:
@@ -59,18 +62,19 @@ runs:
     - uses: actions/checkout@v3
       with:
         repository: nevermined-io/nvm-tools
-        ref: v0.1.2
+        ref: v0.1.3
         path: nvm-tools
         token: ${{ inputs.token }}
         fetch-depth: 0
 
     - name: 'Start nvm-tools'
       env:
-        OVERRIDE_TARGET_REVISION: v0.1.2
+        OVERRIDE_TARGET_REVISION: v0.1.3
         GITHUB_TOKEN: ${{ inputs.token }}
         CONTRACTS_VERSION: ${{ inputs.contracts-version }}
         NODE_VERSION: ${{ inputs.node-version }}
         MARKETPLACE_VERSION: ${{ inputs.marketplace-version }}
+        ELASTICSEARCH_VERSION: ${{ inputs.elastic-version }}
       working-directory: ./nvm-tools
       run: |
         ./nvm-tools start \
