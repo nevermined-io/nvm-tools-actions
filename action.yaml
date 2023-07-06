@@ -16,6 +16,10 @@ inputs:
     description: 'The marketplace api version'
     required: false
     default: 'latest'
+  frost-version:
+    description: 'The frost network version'
+    required: false
+    default: 'latest'
   node:
     description: 'Start with node'
     required: false
@@ -26,6 +30,10 @@ inputs:
     default: 'true'
   opengsn:
     description: 'Start with opengsn'
+    required: false
+    default: 'false'
+  frost:
+    description: 'Start with frost'
     required: false
     default: 'false'
   estuary:
@@ -62,17 +70,18 @@ runs:
     - uses: actions/checkout@v3
       with:
         repository: nevermined-io/nvm-tools
-        ref: v0.1.3
+        ref: v0.1.4
         path: nvm-tools
         token: ${{ inputs.token }}
         fetch-depth: 0
 
     - name: 'Start nvm-tools'
       env:
-        OVERRIDE_TARGET_REVISION: v0.1.3
+        OVERRIDE_TARGET_REVISION: v0.1.4
         GITHUB_TOKEN: ${{ inputs.token }}
         CONTRACTS_VERSION: ${{ inputs.contracts-version }}
         NODE_VERSION: ${{ inputs.node-version }}
+        FROST_VERSION: ${{ inputs.frost-version }}
         MARKETPLACE_VERSION: ${{ inputs.marketplace-version }}
         ELASTICSEARCH_VERSION: ${{ inputs.elastic-version }}
       working-directory: ./nvm-tools
@@ -82,6 +91,7 @@ runs:
           $( [[ ${{ inputs.marketplace }} == "false" ]] && printf %s '--no-marketplace' ) \
           $( [[ ${{ inputs.opengsn }} == "true" ]] && printf %s '--opengsn' ) \
           $( [[ ${{ inputs.estuary }} == "true" ]] && printf %s '--estuary' ) \
+          $( [[ ${{ inputs.frost }} == "true" ]] && printf %s '--frost' ) \
           $( [[ ${{ inputs.compute }} == "true" ]] && printf %s '--compute' ) 
         sudo ln -s $PWD/nvm-tools /usr/local/bin
       shell: bash
