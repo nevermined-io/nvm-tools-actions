@@ -77,7 +77,7 @@ runs:
 
     - name: 'Start nvm-tools'
       env:
-        OVERRIDE_TARGET_REVISION: v0.1.8
+        OVERRIDE_TARGET_REVISION: v0.1.9
         GITHUB_TOKEN: ${{ inputs.token }}
         CONTRACTS_VERSION: ${{ inputs.contracts-version }}
         NODE_VERSION: ${{ inputs.node-version }}
